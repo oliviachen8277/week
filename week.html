@@ -4,151 +4,100 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>一星期有七天 | Les 7 jours de la semaine</title>
-    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;600&family=Noto+Sans+TC:wght@400;500;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;600&family=Noto+Sans+TC:wght@500;700&display=swap" rel="stylesheet">
     <style>
         body { font-family: 'Fredoka', 'Noto Sans TC', sans-serif; }
     </style>
 </head>
 <body class="bg-sky-50 min-h-screen p-4 flex flex-col items-center justify-center">
 
-    <div class="max-w-xl w-full bg-white rounded-3xl shadow-xl overflow-hidden border-4 border-sky-200 p-6">
-        <!-- 標題 -->
-        <header class="text-center mb-6">
-            <h1 class="text-2xl md:text-3xl font-bold text-sky-800">🚂 一星期有七天 🚂</h1>
-            <p class="text-sky-600 text-sm font-medium mt-1">Les 7 jours de la semaine</p>
+    <div class="max-w-2xl w-full bg-white rounded-3xl shadow-xl overflow-hidden border-4 border-sky-200 p-8">
+        <!-- 標題區 -->
+        <header class="text-center mb-8">
+            <h1 class="text-4xl md:text-5xl font-bold text-sky-800">🚂 一星期有七天 🚂</h1>
+            <p class="text-sky-600 text-xl font-medium mt-2">Les 7 jours de la semaine</p>
         </header>
 
         <!-- 展示當前點擊特寫卡片 -->
-        <div id="detail-card" class="bg-gradient-to-br from-indigo-500 to-purple-600 text-white rounded-3xl p-6 text-center shadow-lg transition-all duration-300 mb-6">
-            <div id="card-emoji" class="text-7xl mb-2 animate-bounce">🎒</div>
-            <h2 id="card-day-fr" class="text-3xl font-bold tracking-wide">Lundi</h2>
-            <h3 id="card-day-zh" class="text-xl font-semibold text-indigo-200 mb-3">星期一</h3>
-            <div id="card-activity" class="bg-white/20 backdrop-blur-md rounded-2xl p-3 text-base font-medium">
-                🎒 這是上學日！準備包包去學校囉！<br>
-                <span class="text-xs text-indigo-100">Jour d'école ! On va à l'école !</span>
+        <div id="detail-card" class="bg-gradient-to-br from-orange-500 to-orange-600 text-white rounded-3xl p-8 text-center shadow-lg transition-all duration-300">
+            <div id="card-emoji" class="text-8xl mb-4 animate-bounce">🎒</div>
+            <h2 id="card-day-fr" class="text-5xl font-bold tracking-wide">Lundi</h2>
+            <h3 id="card-day-zh" class="text-3xl font-semibold text-orange-100 mb-6">星期一</h3>
+            <div id="card-activity" class="bg-white/20 backdrop-blur-md rounded-2xl p-5 text-xl font-medium">
+                🎒 今天是上學日！準備包包去學校囉！<br>
+                <span id="card-activity-fr" class="text-base text-orange-100">C'est un jour d'école ! On va à l'école.</span>
             </div>
         </div>
 
-        <!-- 7 天按鈕區 (車廂排版) -->
-        <div class="grid grid-cols-2 md:grid-cols-4 gap-2.5">
-            <button onclick="showDay(0)" class="bg-rose-100 hover:bg-rose-200 active:scale-95 border-2 border-rose-300 p-3 rounded-2xl flex flex-col items-center cursor-pointer transition-all">
-                <span class="text-2xl">🎒</span>
-                <span class="font-bold text-rose-800 text-sm">Lundi</span>
-                <span class="text-xs text-rose-600">星期一</span>
+        <!-- 7 天按鈕區（車廂排版） -->
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mt-8">
+            <button onclick="showDay(0)" class="bg-amber-100 hover:bg-amber-200 active:scale-95 border-2 border-amber-300 p-4 rounded-2xl flex flex-col items-center cursor-pointer transition-all shadow-sm">
+                <span class="text-4xl">🎒</span>
+                <span class="font-bold text-amber-800 text-xl mt-1">Lundi</span>
+                <span class="text-lg text-amber-600 font-medium">星期一</span>
             </button>
-            <button onclick="showDay(1)" class="bg-orange-100 hover:bg-orange-200 active:scale-95 border-2 border-orange-300 p-3 rounded-2xl flex flex-col items-center cursor-pointer transition-all">
-                <span class="text-2xl">🎒</span>
-                <span class="font-bold text-orange-800 text-sm">Mardi</span>
-                <span class="text-xs text-orange-600">星期二</span>
+            <button onclick="showDay(1)" class="bg-amber-100 hover:bg-amber-200 active:scale-95 border-2 border-amber-300 p-4 rounded-2xl flex flex-col items-center cursor-pointer transition-all shadow-sm">
+                <span class="text-4xl">🎒</span>
+                <span class="font-bold text-amber-800 text-xl mt-1">Mardi</span>
+                <span class="text-lg text-amber-600 font-medium">星期二</span>
             </button>
-            <button onclick="showDay(2)" class="bg-emerald-100 hover:bg-emerald-200 active:scale-95 border-2 border-emerald-400 p-3 rounded-2xl flex flex-col items-center cursor-pointer transition-all shadow-sm">
-                <span class="text-2xl">🎾</span>
-                <span class="font-bold text-emerald-800 text-sm">Mercredi</span>
-                <span class="text-xs text-emerald-700 font-bold">星期三 (網球)</span>
+            <button onclick="showDay(2)" class="bg-emerald-100 hover:bg-emerald-200 active:scale-95 border-2 border-emerald-300 p-4 rounded-2xl flex flex-col items-center cursor-pointer transition-all shadow-sm">
+                <span class="text-4xl">🎾</span>
+                <span class="font-bold text-emerald-800 text-xl mt-1">Mercredi</span>
+                <span class="text-lg text-emerald-600 font-medium">星期三 (網球)</span>
             </button>
-            <button onclick="showDay(3)" class="bg-amber-100 hover:bg-amber-200 active:scale-95 border-2 border-amber-300 p-3 rounded-2xl flex flex-col items-center cursor-pointer transition-all">
-                <span class="text-2xl">🎒</span>
-                <span class="font-bold text-amber-800 text-sm">Jeudi</span>
-                <span class="text-xs text-amber-600">星期四</span>
+            <button onclick="showDay(3)" class="bg-amber-100 hover:bg-amber-200 active:scale-95 border-2 border-amber-300 p-4 rounded-2xl flex flex-col items-center cursor-pointer transition-all shadow-sm">
+                <span class="text-4xl">🎒</span>
+                <span class="font-bold text-amber-800 text-xl mt-1">Jeudi</span>
+                <span class="text-lg text-amber-600 font-medium">星期四</span>
             </button>
-            <button onclick="showDay(4)" class="bg-teal-100 hover:bg-teal-200 active:scale-95 border-2 border-teal-300 p-3 rounded-2xl flex flex-col items-center cursor-pointer transition-all">
-                <span class="text-2xl">🎒</span>
-                <span class="font-bold text-teal-800 text-sm">Vendredi</span>
-                <span class="text-xs text-teal-600">星期五</span>
+            <button onclick="showDay(4)" class="bg-amber-100 hover:bg-amber-200 active:scale-95 border-2 border-amber-300 p-4 rounded-2xl flex flex-col items-center cursor-pointer transition-all shadow-sm">
+                <span class="text-4xl">🎒</span>
+                <span class="font-bold text-amber-800 text-xl mt-1">Vendredi</span>
+                <span class="text-lg text-amber-600 font-medium">星期五</span>
             </button>
-            <button onclick="showDay(5)" class="bg-purple-100 hover:bg-purple-200 active:scale-95 border-2 border-purple-300 p-3 rounded-2xl flex flex-col items-center cursor-pointer transition-all">
-                <span class="text-2xl">🎠</span>
-                <span class="font-bold text-purple-800 text-sm">Samedi</span>
-                <span class="text-xs text-purple-600">星期六</span>
+            <button onclick="showDay(5)" class="bg-purple-100 hover:bg-purple-200 active:scale-95 border-2 border-purple-300 p-4 rounded-2xl flex flex-col items-center cursor-pointer transition-all shadow-sm">
+                <span class="text-4xl">🐎</span>
+                <span class="font-bold text-purple-800 text-xl mt-1">Samedi</span>
+                <span class="text-lg text-purple-600 font-medium">星期六</span>
             </button>
-            <button onclick="showDay(6)" class="col-span-2 md:col-span-1 bg-pink-100 hover:bg-pink-200 active:scale-95 border-2 border-pink-300 p-3 rounded-2xl flex flex-col items-center cursor-pointer transition-all">
-                <span class="text-2xl">🍦</span>
-                <span class="font-bold text-pink-800 text-sm">Dimanche</span>
-                <span class="text-xs text-pink-600">星期日</span>
+            <button onclick="showDay(6)" class="bg-pink-100 hover:bg-pink-200 active:scale-95 border-2 border-pink-300 p-4 rounded-2xl flex flex-col items-center cursor-pointer transition-all shadow-sm col-span-2 md:col-span-1">
+                <span class="text-4xl">🍦</span>
+                <span class="font-bold text-pink-800 text-xl mt-1">Dimanche</span>
+                <span class="text-lg text-pink-600 font-medium">星期日</span>
             </button>
         </div>
 
-        <!-- 溫馨備註 -->
-        <div class="mt-6 text-center text-xs text-gray-400">
-            💡 點選按鈕看看今天要做什麼事！
-        </div>
+        <p class="text-center text-gray-500 text-lg mt-6">💡 點選按鈕看看今天要做什麼事！</p>
     </div>
 
     <script>
-        const weekData = [
-            {
-                fr: "Lundi",
-                zh: "星期一",
-                emoji: "🎒",
-                bg: "from-rose-500 to-red-600",
-                actZh: "🏫 今天是上學日！要背小書包去學校！",
-                actFr: "C'est un jour d'école ! On va à l'école."
-            },
-            {
-                fr: "Mardi",
-                zh: "星期二",
-                emoji: "✏️",
-                bg: "from-orange-400 to-amber-500",
-                actZh: "🏫 今天也是上學日！在學校和大家開心地玩！",
-                actFr: "Deuxième jour d'école ! On joue avec les copains."
-            },
-            {
-                fr: "Mercredi",
-                zh: "星期三",
-                emoji: "🎾",
-                bg: "from-emerald-500 to-teal-600",
-                actZh: "🎾 不用去學校！早上要和爸爸打網球 1 小時喔！",
-                actFr: "Pas d'école ! Ce matin, 1 heure de tennis avec Papa !"
-            },
-            {
-                fr: "Jeudi",
-                zh: "星期四",
-                emoji: "🎨",
-                bg: "from-sky-500 to-blue-600",
-                actZh: "🏫 今天要上學！在學校畫畫和聽故事！",
-                actFr: "Retour à l'école ! On dessine et écoute des histoires."
-            },
-            {
-                fr: "Vendredi",
-                zh: "星期五",
-                emoji: "🎒",
-                bg: "from-teal-500 to-emerald-600",
-                actZh: "🏫 上學最後一天！明天就要放假囉！",
-                actFr: "Dernier jour d'école de la semaine ! Bientôt le week-end !"
-            },
-            {
-                fr: "Samedi",
-                zh: "星期六",
-                emoji: "🎠",
-                bg: "from-purple-500 to-indigo-600",
-                actZh: "🎈 週末到了！不上課，可以去公園放風、玩溜滑梯！",
-                actFr: "C'est le week-end ! Pas d'école, on va au parc !"
-            },
-            {
-                fr: "Dimanche",
-                zh: "星期日",
-                emoji: "📖",
-                bg: "from-pink-500 to-rose-600",
-                actZh: "🍦 週末第二天！在家看中文繪本、聽故事、好好休息！",
-                actFr: "Deuxième jour du week-end ! Lecture et câlins à la maison !"
-            }
+        const days = [
+            { fr: "Lundi", zh: "星期一", emoji: "🎒", desc: "🎒 今天是上學日！準備包包去學校囉！", descFr: "C'est un jour d'école ! On va à l'école.", color: "from-amber-500 to-amber-600", textColor: "text-amber-100" },
+            { fr: "Mardi", zh: "星期二", emoji: "🎒", desc: "🎒 今天是上學日！加油加油！", descFr: "C'est un jour d'école ! Courage !", color: "from-amber-500 to-amber-600", textColor: "text-amber-100" },
+            { fr: "Mercredi", zh: "星期三", emoji: "🎾", desc: "🎾 今天去打網球！動一動好健康！", descFr: "Aujourd'hui, c'est le tennis !", color: "from-emerald-500 to-emerald-600", textColor: "text-emerald-100" },
+            { fr: "Jeudi", zh: "星期四", emoji: "🎒", desc: "🎒 今天是上學日！認真上課喔！", descFr: "C'est un jour d'école ! Soyez attentif !", color: "from-amber-500 to-amber-600", textColor: "text-amber-100" },
+            { fr: "Vendredi", zh: "星期五", emoji: "🎒", desc: "🎒 今天是上學日！明天就要放假囉！", descFr: "C'est vendredi ! Le week-end arrive !", color: "from-amber-500 to-amber-600", textColor: "text-amber-100" },
+            { fr: "Samedi", zh: "星期六", emoji: "🐎", desc: "🐎 今天去騎馬！太開心了！", descFr: "Aujourd'hui, on fait de l'équitation !", color: "from-purple-500 to-purple-600", textColor: "text-purple-100" },
+            { fr: "Dimanche", zh: "星期日", emoji: "🍦", desc: "🍦 快樂星期天！一起吃冰淇淋休息吧！", descFr: "Bon dimanche ! On se repose et on mange une glace !", color: "from-pink-500 to-pink-600", textColor: "text-pink-100" }
         ];
 
         function showDay(index) {
-            const data = weekData[index];
+            const day = days[index];
             const card = document.getElementById('detail-card');
             
-            card.className = `bg-gradient-to-br ${data.bg} text-white rounded-3xl p-6 text-center shadow-lg transition-all duration-300 mb-6 transform scale-102`;
+            // 更新卡片外觀與文字內容
+            document.getElementById('card-emoji').innerText = day.emoji;
+            document.getElementById('card-day-fr').innerText = day.fr;
+            document.getElementById('card-day-zh').innerText = day.zh;
+            document.getElementById('card-day-zh').className = `text-3xl font-semibold mb-6 ${day.textColor}`;
             
-            document.getElementById('card-emoji').innerText = data.emoji;
-            document.getElementById('card-day-fr').innerText = data.fr;
-            document.getElementById('card-day-zh').innerText = data.zh;
-            document.getElementById('card-activity').innerHTML = `${data.actZh}<br><span class="text-xs opacity-90">${data.actFr}</span>`;
+            const activityBox = document.getElementById('card-activity');
+            activityBox.innerHTML = `${day.desc}<br><span class="text-base ${day.textColor}">${day.descFr}</span>`;
             
-            setTimeout(() => {
-                card.classList.remove('scale-102');
-            }, 150);
+            // 更換漸層背景色
+            card.className = `bg-gradient-to-br ${day.color} text-white rounded-3xl p-8 text-center shadow-lg transition-all duration-300`;
         }
     </script>
 </body>
